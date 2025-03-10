@@ -4,10 +4,13 @@ public class Hero {
     public static int r = 10;
     public static int initialUpVelocity = 10;
     public static int grav = 1;
-    public static int dxReductionCounterInit = 3;
+    public static int dxReductionCounterInit = 8;
     public static int maxDistance = initialUpVelocity * initialUpVelocity / (2 * grav) - Hero.r;
 
-    private final int dxMovementStepSize = 2;
+    private int dxMovementStepSize = 3;
+    private final int dxMovementStepSizeMax = 10;
+    private final int dxMovementStepAdd = 3;
+    private final int dxMax = 25;
 
     private int x, y;
     private int dx = 0;
@@ -22,10 +25,17 @@ public class Hero {
     }
 
     void updateX(int maxWidth) {
+        System.out.println(dx);
         this.x += dx;
         dxReductionCounter -= 1;
         if (dxReductionCounter == 0) {
-            dx /= 2;
+//            System.out.println("Reducing");
+//            dx /= 2;
+            if (dx < 0) {
+                dx += 1;
+            } else if (dx > 0) {
+                dx -= 1;
+            }
             dxReductionCounter = dxReductionCounterInit;
         }
         if (x < 0)
@@ -77,11 +87,21 @@ public class Hero {
     }
 
     public void moveLeft() {
-        dx -= dxMovementStepSize;
+        System.out.println("Moving left");
+        dxMovementStepSize = Math.min(dxMovementStepSizeMax, dxMovementStepSize + dxMovementStepAdd);
+        dx = Math.max(-dxMax, dx - dxMovementStepSize);
     }
 
     public void moveRight() {
-        dx += dxMovementStepSize;
+        System.out.println("Moving right");
+        dxMovementStepSize = Math.min(dxMovementStepSizeMax, dxMovementStepSize + dxMovementStepAdd);
+        dx = Math.min(dxMax, dx + dxMovementStepSize);
+    }
+
+    public void stopMoving() {
+        System.out.println("Stopped moving");
+        dx = 0;
+        dxMovementStepSize = 3;
     }
 
     @Override
@@ -89,4 +109,5 @@ public class Hero {
         return "Hero(" + x + "," + y + ")";
 
     }
+
 }

@@ -17,7 +17,7 @@ public class Engine {
     private int WINDOW_HEIGHT;
     private int scrollUpLimit;
     private int distanceBetweenPlatforms;
-    private final long timerDelay = 100;
+    private final long timerDelay = 30;
     LinkedList<Platform> visiblePlatforms;
     private int variance;
     private ExecutorService pool = Executors.newFixedThreadPool(1);
@@ -219,6 +219,14 @@ public class Engine {
         synchronized (this) {
             if (hasStarted) {
                 hero.moveRight();
+            }
+        }
+    }
+
+    public void stopMoving() {
+        synchronized (this) {
+            if (hasStarted) {
+                hero.stopMoving();
             }
         }
     }

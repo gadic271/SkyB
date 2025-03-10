@@ -133,6 +133,11 @@ public class Keys {
 
             @Override
             public void keyReleased(KeyEvent arg0) {
+                int code = arg0.getKeyCode();
+                if (code == 39 || code == 37)
+                    e.stopMoving();
+                else
+                    System.out.println("key error :" + code);
             }
 
             @Override
