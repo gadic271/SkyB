@@ -96,7 +96,7 @@ public class GameOver extends JPanel {
             s = scores[i];
             if (s != null) {
                 text = "" + s.getScore() + " : " + s.getName();
-                g.drawString(text, width / 2, (i + 1) * height / (numScores + 2));
+                g.drawString(text, width / 3, (i + 1) * height / (numScores + 2));
             }
         }
     }

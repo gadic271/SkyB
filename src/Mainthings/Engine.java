@@ -17,7 +17,7 @@ public class Engine {
     private int WINDOW_HEIGHT;
     private int scrollUpLimit;
     private int distanceBetweenPlatforms;
-    private final long timerDelay = 30;
+    private final long timerDelay = 25;
     LinkedList<Platform> visiblePlatforms;
     private int variance;
     private ExecutorService pool = Executors.newFixedThreadPool(1);
