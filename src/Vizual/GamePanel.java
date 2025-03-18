@@ -1,10 +1,6 @@
 package Vizual;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -14,6 +10,7 @@ import javax.swing.JPanel;
 import Mainthings.Hero;
 import Mainthings.Engine;
 import Mainthings.Platform;
+import Mainthings.Score;
 
 public class GamePanel extends JPanel {
 
@@ -65,7 +62,21 @@ public class GamePanel extends JPanel {
             g.setColor(Color.BLACK);
             ((Graphics2D) g).setStroke(new BasicStroke(Platform.WIDTH / 2));
             g.drawRect(0, 0, width, height);
+            Score[] scores = Engine.getHighScores();
+            int numScores = scores.length;
+            Score s;
+            String text;
+            g.setColor(Color.BLACK);
+            g.setFont(new Font("Calibri", Font.PLAIN, 20));
+            g.drawString("Records", 50, 40);
+            g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+            for (int i = 0; i < numScores; i++) {
+                s = scores[i];
+                if (s != null) {
+                    text = "" + s.getScore() + " : " + s.getName();
+                    g.drawString(text, width / 10, (i + 1) * height / (numScores+7));
+                }
         }
     }
-
+    }
 }

@@ -1,12 +1,13 @@
 package Mainthings;
 
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
+import Mainthings.Score;
 import Vizual.ViewListener;
 public class Engine {
     static int highScoresKept = 5;
@@ -17,7 +18,7 @@ public class Engine {
     private int WINDOW_HEIGHT;
     private int scrollUpLimit;
     private int distanceBetweenPlatforms;
-    private final long timerDelay = 25;
+    private final long timerDelay = 30;
     LinkedList<Platform> visiblePlatforms;
     private int variance;
     private ExecutorService pool = Executors.newFixedThreadPool(1);
@@ -161,6 +162,8 @@ public class Engine {
             hero.updateRoughY();
         hero.resetYStepCounter();
         hero.updateDy();
+
+
     }
 
     private void updatePlatforms() {
@@ -194,7 +197,7 @@ public class Engine {
         this.gameOverListener = a;
     }
 
-    void updateAll() {
+    void updateAll( ) {
         synchronized (this) {
             if (hasStarted) {
                 if (!gameOver) {
@@ -258,6 +261,7 @@ public class Engine {
                     return;
                 }
             }
+
         }
     }
 }

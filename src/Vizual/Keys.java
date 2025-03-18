@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 
 import Mainthings.Engine;
 
-public class Keys {
+public class  Keys {
     public static String backgroundName = "background.jpg";
     public static String startButtonName = "Start.png";
     public static URL backgroundURL = Keys.class.getResource("background.jpg");
@@ -60,6 +60,7 @@ public class Keys {
             public void mousePressed(MouseEvent event) {
                 e.init();
                 switchTo(startScreen);
+
             }
 
             @Override
@@ -131,6 +132,7 @@ public class Keys {
             public void keyTyped(KeyEvent arg0) {
             }
 
+
             @Override
             public void keyReleased(KeyEvent arg0) {
                 int code = arg0.getKeyCode();
@@ -147,8 +149,8 @@ public class Keys {
                     e.moveRight();
                 else if (code == 37)
                     e.moveLeft();
-                else if (code == 32)
-                    e.start();
+                else if (code == 27)
+                    e.start(); //добавить паузу
                 else
                     System.out.println("key error :" + code);
             }

@@ -43,7 +43,6 @@ public class Start extends JPanel {
                 Math.min(background.getWidth(), width),
                 Math.min(background.getHeight(), height), null);
         g.drawRoundRect(width / 8, height * 3 / 8, width * 3 / 4, height / 4, width / 8, height / 8);
-        g.drawString("Start", width/2, height/2);
         g.drawImage(startButton, width / 8 + 5, height * 3 / 8, width / 8 + startButtonWidth, height * 3 / 8 + startButtonHeight, 0, 0,
                 startButtonWidth,
                 startButtonHeight, null);

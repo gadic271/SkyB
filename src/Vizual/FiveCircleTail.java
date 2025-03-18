@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 import Mainthings.Hero;
+import Mainthings.Score;
 
 public class FiveCircleTail extends ExampleDrawer {
     private final int numCircleTails = 3;
