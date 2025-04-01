@@ -7,7 +7,7 @@ import Mainthings.Hero;
 import Mainthings.Score;
 
 public class FiveCircleTail extends ExampleDrawer {
-    private final int numCircleTails = 3;
+    private final int numCircleTails = 4;
     private int start = 0;
 
     private int[] lastY = new int[numCircleTails];

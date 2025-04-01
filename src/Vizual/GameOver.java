@@ -85,18 +85,19 @@ public class GameOver extends JPanel {
         int numScores = scores.length;
         Score s;
         String text;
+        g.setColor(Color.WHITE);
         g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
         g.drawString("High scores", 1, 20);
         g.setColor(Color.GREEN);
         g.setFont(new Font("Calibri", Font.PLAIN, 50));
-        g.drawString("Click anywhere to restart", 120, 40);
-        g.setColor(Color.BLACK);
+        g.drawString("Click anywhere to restart", 100, 500);
+        g.setColor(Color.WHITE);
         g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
         for (int i = 0; i < numScores; i++) {
             s = scores[i];
             if (s != null) {
                 text = "" + s.getScore() + " : " + s.getName();
-                g.drawString(text, width / 3, (i + 1) * height / (numScores + 2));
+                g.drawString(text, width / 8, (i + 1) * height / (numScores + 2));
             }
         }
     }

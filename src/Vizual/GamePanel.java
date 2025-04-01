@@ -66,9 +66,9 @@ public class GamePanel extends JPanel {
             int numScores = scores.length;
             Score s;
             String text;
-            g.setColor(Color.BLACK);
+            g.setColor(Color.WHITE);
             g.setFont(new Font("Calibri", Font.PLAIN, 20));
-            g.drawString("Records", 50, 40);
+            g.drawString("Records:", 50, 40);
             g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
             for (int i = 0; i < numScores; i++) {
                 s = scores[i];
