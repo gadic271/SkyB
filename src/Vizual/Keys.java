@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Mainthings.Engine;
+import Mainthings.Hero;
 
 public class  Keys {
     public static String backgroundName = "background_black.png";
@@ -150,7 +151,7 @@ public class  Keys {
                 else if (code == 37)
                     e.moveLeft();
                 else if (code == 27)
-                    e.start(); //добавить паузу
+                    e.pause(); //добавить паузу
                 else
                     System.out.println("key error :" + code);
             }

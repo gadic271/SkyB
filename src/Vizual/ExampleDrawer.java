@@ -12,8 +12,6 @@ public abstract class ExampleDrawer {
 
     protected void drawHero(Graphics g, Color c, int cx, int cy, int r) {
         g.setColor(c);
-        int newCx = cx+ Platform.WIDTH / 2;
-        int newCy = height - cy;
 
     }
 
@@ -21,7 +19,7 @@ public abstract class ExampleDrawer {
 
         int newCx = cx + Platform.WIDTH / 2;
         int newCy = height - cy;
-        Drawing.drawCircleWithBorder(g, c, newCx, newCy, r);
+        Drawing.drawRectWithBorder(g, c, newCx, newCy, r);
     }
 
     void setDimensions(int width, int height) {

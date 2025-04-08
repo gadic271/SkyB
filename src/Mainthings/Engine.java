@@ -29,7 +29,6 @@ public class Engine {
     private ActionListener gameOverListener;
 
     public Engine(int width, int height) {
-
         WINDOW_HEIGHT = height;
         scrollUpLimit = WINDOW_HEIGHT * 4 / 5;
         WINDOW_WIDTH = width;
@@ -232,6 +231,9 @@ public class Engine {
                 hero.stopMoving();
             }
         }
+    }
+    public void pause() {
+        hero.stop();
     }
 
     public void registerView(ViewListener object) {

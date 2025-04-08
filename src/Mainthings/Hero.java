@@ -110,4 +110,8 @@ public class Hero {
 
     }
 
+    public void stop() {
+        dx = 0;
+        dy = 10;
+    }
 }

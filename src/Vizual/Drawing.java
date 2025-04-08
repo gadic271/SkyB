@@ -1,14 +1,13 @@
 package Vizual;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
+
 public final class Drawing {
     private Drawing() {
 
     }
-    static void drawCircleWithBorder(Graphics g, Color c, int cx, int cy, int r) {
+    static void drawRectWithBorder(Graphics g, Color c, int cx, int cy, int r) {
 
         int left = cx - r;
         int top = cy - r;

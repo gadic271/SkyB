@@ -25,7 +25,6 @@ public class GamePanel extends JPanel {
         this.e = engine;
         this.height = height;
         this.setPreferredSize(new Dimension(width, height));
-        setExampleDrawer(new Example());
         try {
             background = ImageIO.read(Keys.backgroundURL);
 
@@ -56,7 +55,6 @@ public class GamePanel extends JPanel {
                 g.setColor(Color.GREEN);
                 g.fillRect(left, top, Platform.WIDTH, Platform.HEIGHT);
             }
-            g.setColor(Color.BLUE);
             Hero b = e.getHero();
             emoteDrawer.drawHeroWithTail(g, b);
             g.setColor(Color.BLACK);
