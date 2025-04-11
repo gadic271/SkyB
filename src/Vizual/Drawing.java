@@ -16,7 +16,4 @@ public final class Drawing {
         g.setColor(Color.black);
         g.drawRect(left, top, r*2, r*2);
     }
-
-
-
 }

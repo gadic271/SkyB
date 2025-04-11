@@ -12,6 +12,8 @@ import Mainthings.Engine;
 import Mainthings.Platform;
 import Mainthings.Score;
 
+import static java.lang.String.valueOf;
+
 public class GamePanel extends JPanel {
 
     private Engine e;
@@ -66,15 +68,17 @@ public class GamePanel extends JPanel {
             String text;
             g.setColor(Color.WHITE);
             g.setFont(new Font("Calibri", Font.PLAIN, 20));
+            g.drawString("Score:", 570, 50);
+            g.drawString(String.valueOf(e.getScore()), 640, 50);
             g.drawString("Records:", 50, 40);
             g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
             for (int i = 0; i < numScores; i++) {
                 s = scores[i];
                 if (s != null) {
                     text = "" + s.getScore() + " : " + s.getName();
-                    g.drawString(text, width / 10, (i + 1) * height / (numScores+7));
+                    g.drawString(text, width / 10, (i + 1) * height / (numScores + 7));
                 }
+            }
         }
-    }
     }
 }

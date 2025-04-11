@@ -1,14 +1,14 @@
 package Mainthings;
 
-import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import Mainthings.Score;
+
 import Vizual.ViewListener;
+
 public class Engine {
     static int highScoresKept = 5;
     private static Score[] highScores = new Score[highScoresKept];
@@ -26,6 +26,8 @@ public class Engine {
     private ViewListener gui;
     private boolean hasStarted = false;
     private boolean gameOver = false;
+
+    private boolean pauseflag = false;
     private ActionListener gameOverListener;
 
     public Engine(int width, int height) {
@@ -37,11 +39,13 @@ public class Engine {
         init();
         pool.execute(new Timer(this, timerDelay));
     }
+
     public void init() {
         initPlatforms();
         initHero();
         hasStarted = false;
         gameOver = false;
+        pauseflag = false;
         this.score = 0;
     }
 
@@ -148,7 +152,9 @@ public class Engine {
                     if (hasCollided(p)) {
                         p.doCollisionAction();
                         hero.bounce();
-                        score= hero.getY()/distanceBetweenPlatforms;
+                        if (hero.getY() < WINDOW_HEIGHT) {
+                            score = hero.getY() / distanceBetweenPlatforms;
+                        }
                         break;
                     } else if (p.getY() - Platform.HEIGHT / 2 > hero.getY()
                             + Hero.r) {
@@ -196,12 +202,19 @@ public class Engine {
         this.gameOverListener = a;
     }
 
-    void updateAll( ) {
+    public boolean pause() {
+        pauseflag = !pauseflag;
+        return pauseflag;
+    }
+
+    void updateAll() {
         synchronized (this) {
             if (hasStarted) {
                 if (!gameOver) {
-                    updateHeroPos();
-                    updatePlatforms();
+                    if(!pauseflag){
+                        updateHeroPos();
+                        updatePlatforms();
+                    }
                 }
                 gui.actionPerformed();
 
@@ -231,9 +244,6 @@ public class Engine {
                 hero.stopMoving();
             }
         }
-    }
-    public void pause() {
-        hero.stop();
     }
 
     public void registerView(ViewListener object) {

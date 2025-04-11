@@ -27,6 +27,4 @@ public abstract class ExampleDrawer {
         this.width = width;
     }
     abstract void drawHeroWithTail(Graphics g, Hero b);
-
-
 }

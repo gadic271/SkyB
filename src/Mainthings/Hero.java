@@ -109,9 +109,4 @@ public class Hero {
         return "Hero(" + x + "," + y + ")";
 
     }
-
-    public void stop() {
-        dx = 0;
-        dy = 10;
-    }
 }
